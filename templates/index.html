@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Releases</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>New Releases</h1>
+    <button onclick="sortNewest()">Sort by Newest</button>
+    <div id="album-container">
+        <div id="album-list">
+            <ul>
+                {% for release in new_releases %}
+                    <li>
+                        <img src="{{ release[4] }}" alt="{{ release[0] }}" class="album-image">
+                        <div class="album-info">
+                            <strong>{{ release[0] }}</strong> - {{ release[1] }} (Release Date: {{ release[2] }}) 
+                            <a href="{{ release[3] }}" target="_blank">Listen on Spotify</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function sortNewest() {
+            // Redirect to the same page with a parameter indicating sorting preference
+            window.location.href = "{{ url_for('index', sort='newest') }}";
+        }
+    </script>
+</body>
+</html>
