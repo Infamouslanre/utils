@@ -7,21 +7,28 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>New Releases</h1>
-    <button onclick="sortNewest()">Sort by Newest</button>
-    <div id="album-container">
-        <div id="album-list">
-            <ul>
-                {% for release in new_releases %}
-                    <li>
-                        <img src="{{ release[4] }}" alt="{{ release[0] }}" class="album-image">
-                        <div class="album-info">
-                            <strong>{{ release[0] }}</strong> - {{ release[1] }} (Release Date: {{ release[2] }}) 
-                            <a href="{{ release[3] }}" target="_blank">Listen on Spotify</a>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+    <div id="content-container">
+        <div id="title-container">
+            <h1>New Releases</h1>
+            <button onclick="sortNewest()">Sort by Newest</button>
+        </div>
+
+        <div id="album-container">
+            <div id="album-list">
+                <ul>
+                    {% for release in new_releases %}
+                        <li>
+                            <img src="{{ release[4] }}" alt="{{ release[0] }}" class="album-image">
+                            <div class="album-info">
+                                <strong>{{ release[0] }}</strong> <!-- Album name -->
+                                <p>{{ release[1] }}</p> <!-- Artist name -->
+                                <p>Release Date: {{ release[2] }}</p> <!-- Release date -->
+                                <a href="{{ release[3] }}" target="_blank">Listen on Spotify</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 

@@ -1,3 +1,14 @@
+/* styles.css */
+
+#content-container {
+    text-align: center; /* Center the content horizontally */
+    padding: 20px; /* Add padding around the content */
+}
+
+#title-container {
+    margin-bottom: 20px; /* Add space between title/button and album list */
+}
+
 #album-container {
     max-width: 800px;
     margin: 0 auto;
@@ -25,6 +36,10 @@ li {
 
 .album-info {
     margin-left: 20px;
+}
+
+.album-info p {
+    margin: 5px 0; /* Add margin between paragraphs */
 }
 
 .album-image {
